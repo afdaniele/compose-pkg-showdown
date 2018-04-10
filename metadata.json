@@ -1,0 +1,14 @@
+{
+    "name" : "Showdown Markdown Viewer",
+    "description" : "Provides functionalities for generating code documentation using showdown (http://www.showdownjs.com/)",
+    "dependencies" : {
+        "system-packages" : [],
+        "packages" : []
+    },
+    "url_rewrite" : {
+        "images_rule" : {
+            "pattern" : "/^\\/docs\\/([^\\/]+)\\/images\\/(.+)$/",
+            "replace" : "data/showdown/documents/$1/images/$2"
+        }
+    }
+}

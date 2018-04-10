@@ -1,0 +1,101 @@
+/* Override color set by highlightJS */
+#_showdown_html_container code{
+    background-color: inherit;
+}
+
+/* Fix the space error between 1st and 2nd level of a list */
+#_showdown_html_container ul li p{
+    margin: 6px 0 0 0;
+}
+
+/* Give images some space */
+#_showdown_html_container p img{
+    margin: 14px 0;
+}
+
+
+/* Set the colors for the tree-view code block */
+#_showdown_html_container .language-treeview{
+    color: inherit;
+}
+#_showdown_html_container .language-treeview .hljs-selector-tag{
+    color: forestgreen;
+}
+#_showdown_html_container .language-treeview .hljs-selector-class{
+    color: #c7254e;
+}
+
+
+/* Fix anchor offset */
+#_showdown_html_container h1,
+#_showdown_html_container h2,
+#_showdown_html_container h3,
+#_showdown_html_container h4,
+#_showdown_html_container h5,
+#_showdown_html_container h6{
+    padding-top: 60px;
+    margin-top: -40px;
+}
+#_showdown_html_container h2{
+    padding-top: 80px;
+}
+/* eclude first header */
+#_showdown_html_container h1:first-of-type{
+    margin-top: 0;
+    padding-top: 0;
+}
+/* exclude callouts */
+#_showdown_html_container .bs-callout h4{
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/* exclude member functions panels */
+#_showdown_html_container .reference-code-documentation-panel h3{
+    padding-top: 80px;
+    margin-top: -80px;
+}
+
+
+/* Make bold only the name of the function in the title of the panels */
+#_showdown_html_container .reference-code-documentation-panel h3{
+    font-weight: normal;
+}
+
+/* Add shadow to panels */
+#_showdown_html_container .reference-code-documentation-panel{
+    box-shadow: 5px 6px #88888833;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+#_showdown_html_container .reference-code-documentation-panel .panel-heading{
+    box-shadow: 0 4px #77777777;
+}
+
+
+/* Restore indentation for dd blocks. Disabled by Bootstrap */
+dd{
+    margin-left: 20px;
+}
+
+
+/* Update style of the breadcrumb */
+.breadcrumb{
+    margin: 20px 0 0 0;
+    background-color: white;
+    padding: 14px 20px;
+    font-size: 11pt;
+    border: 1px solid lightgray;
+}
+.breadcrumb>li+li:before{
+    color: #777777;
+}
+
+/* Plain Text highlight JS */
+.language-plain,
+.language-plain span,
+.language-plain span span,
+.language-plain span span span{
+    color: inherit;
+    font-weight: normal;
+}

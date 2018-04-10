@@ -1,0 +1,10 @@
+{
+    "configuration_content" : {
+        "documents_title" : {
+            "title" : "Documents title (leave empty to hide)",
+            "type" : "text",
+            "default" : null,
+            "details" : "Main title to show as header to the viewer page (leave empty to skip)"
+        }
+    }
+}
