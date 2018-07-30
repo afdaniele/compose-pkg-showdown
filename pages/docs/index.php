@@ -148,5 +148,4 @@ if( is_null(Configuration::$ARG1) ){
 
 	// set the title of the page in the breadcrumb according to the H1 header
 	$('#breadcrumb_current_title').html( $("#_showdown_html_container h1:first-of-type").html() );
-
 </script>
