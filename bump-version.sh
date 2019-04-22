@@ -135,4 +135,4 @@ else
     fi
 fi
 
-echo -e "${NOTICE_FLAG} Finished."
+echo -e "${NOTICE_FLAG} Finished.${RESET}"
