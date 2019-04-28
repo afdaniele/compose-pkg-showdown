@@ -1,36 +1,42 @@
 /* Override color set by highlightJS */
 #_showdown_html_container code{
-    background-color: inherit;
+  background-color: inherit;
 }
 
 /* Fix the space to the left of lists */
 #_showdown_html_container ul{
-    padding-left: 35px;
+  padding-left: 35px;
 }
 #_showdown_html_container ul li ul{
-    padding-left: 25px;
+  padding-left: 25px;
 }
 
 /* Fix the space error between 1st and 2nd level of a list */
 #_showdown_html_container ul li p{
-    margin: 6px 0 0 0;
+  margin: 6px 0 0 0;
 }
 
 /* Give images some space */
 #_showdown_html_container p img{
-    margin: 14px 0;
+  margin: 14px 0;
 }
 
 
 /* Set the colors for the tree-view code block */
 #_showdown_html_container .language-treeview{
-    color: inherit;
+  color: inherit;
 }
 #_showdown_html_container .language-treeview .hljs-selector-tag{
-    color: forestgreen;
+  color: forestgreen;
 }
 #_showdown_html_container .language-treeview .hljs-selector-class{
-    color: #c7254e;
+  color: #c7254e;
+}
+
+
+/* Fix code style */
+#_showdown_html_container code{
+  font-size: 100%;
 }
 
 
@@ -41,61 +47,61 @@
 #_showdown_html_container h4,
 #_showdown_html_container h5,
 #_showdown_html_container h6{
-    padding-top: 60px;
-    margin-top: -40px;
+  padding-top: 60px;
+  margin-top: -40px;
 }
 #_showdown_html_container h2{
-    padding-top: 80px;
+  padding-top: 80px;
 }
 /* eclude first header */
 #_showdown_html_container h1:first-of-type{
-    margin-top: 0;
-    padding-top: 0;
+  margin-top: 0;
+  padding-top: 0;
 }
 /* exclude callouts */
 #_showdown_html_container .bs-callout h4{
-    padding-top: 0;
-    margin-top: 0;
+  padding-top: 0;
+  margin-top: 0;
 }
 /* exclude member functions panels */
 #_showdown_html_container .reference-code-documentation-panel h3{
-    padding-top: 80px;
-    margin-top: -80px;
+  padding-top: 80px;
+  margin-top: -80px;
 }
 
 
 /* Make bold only the name of the function in the title of the panels */
 #_showdown_html_container .reference-code-documentation-panel h3{
-    font-weight: normal;
+  font-weight: normal;
 }
 
 /* Add shadow to panels */
 #_showdown_html_container .reference-code-documentation-panel{
-    box-shadow: 5px 6px #88888833;
-    margin-top: 10px;
-    margin-bottom: 30px;
+  box-shadow: 5px 6px #88888833;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 #_showdown_html_container .reference-code-documentation-panel .panel-heading{
-    box-shadow: 0 4px #77777777;
+  box-shadow: 0 4px #77777777;
 }
 
 
 /* Restore indentation for dd blocks. Disabled by Bootstrap */
 dd{
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 
 /* Update style of the breadcrumb */
 .breadcrumb{
-    margin: 20px 0 0 0;
-    background-color: white;
-    padding: 14px 20px;
-    font-size: 11pt;
-    border: 1px solid lightgray;
+  margin: 20px 0 0 0;
+  background-color: white;
+  padding: 14px 20px;
+  font-size: 11pt;
+  border: 1px solid lightgray;
 }
 .breadcrumb>li+li:before{
-    color: #777777;
+  color: #777777;
 }
 
 /* Plain Text highlight JS */
@@ -103,6 +109,6 @@ dd{
 .language-plain span,
 .language-plain span span,
 .language-plain span span span{
-    color: inherit;
-    font-weight: normal;
+  color: inherit;
+  font-weight: normal;
 }
