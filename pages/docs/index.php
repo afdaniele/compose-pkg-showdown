@@ -1,50 +1,42 @@
 <?php
 # @Author: Andrea F. Daniele <afdaniele>
-# @Date:   Sunday, January 7th 2018
 # @Email:  afdaniele@ttic.edu
 # @Last modified by:   afdaniele
-# @Last modified time: Monday, January 8th 2018
 
-
-use \system\classes\Core as Core;
-use \system\classes\Configuration as Configuration;
+use \system\classes\Core;
+use \system\classes\Configuration;
 
 $this_package = 'showdown';
 
-$documents_dir = sprintf("%s../data/%s/documents", $GLOBALS['__SYSTEM__DIR__'], $this_package );
+$documents_dir = sprintf("%s../data/%s/documents", $GLOBALS['__SYSTEM__DIR__'], $this_package);
+
 
 // go to index if the first-level dir is not given
-if( strlen(Configuration::$ACTION) < 1 )
-	\system\classes\Core::redirectTo('docs/index');
+if (strlen(Configuration::$ACTION) < 1) {
+	Core::redirectTo('docs/index');
+}
 
-
-if( is_null(Configuration::$ARG1) ){
+if (is_null(Configuration::$ARG1)) {
 	$file = Configuration::$ACTION;
 	$md_file_path = sprintf("%s/%s.md", $documents_dir, $file);
-	if( !file_exists($md_file_path) ){
-		$file = Configuration::$ACTION . '/' . 'index';
+	if (!file_exists($md_file_path)) {
+		$file = sprintf('%s/index', Configuration::$ACTION);
 		$md_file_path = sprintf("%s/%s.md", $documents_dir, $file);
-		if( file_exists($md_file_path) ){
-			\system\classes\Core::redirectTo('docs/'.$file);
+		if (file_exists($md_file_path)) {
+			Core::redirectTo('docs/'.$file);
 		}else{
 			// TODO: maybe show an error here
-			\system\classes\Core::redirectTo('docs/index');
+			Core::redirectTo('docs/index');
 		}
 	}
 }else{
 	$file = Configuration::$ACTION . '/' . Configuration::$ARG1;
 	$md_file_path = sprintf("%s/%s.md", $documents_dir, $file);
-	if( !file_exists($md_file_path) ){
+	if (!file_exists($md_file_path)) {
 		// TODO: maybe show an error here
-		\system\classes\Core::redirectTo('docs/index');
+		Core::redirectTo('docs/index');
 	}
 }
-
-
-
-
-
-
 ?>
 
 <!-- Import Showdown v1.8.6 (http://www.showdownjs.com/) -->
@@ -68,11 +60,8 @@ if( is_null(Configuration::$ARG1) ){
 <!-- Table -->
 <script src="<?php echo Core::getJSscriptURL('showdown-table.js', 'showdown') ?>" type="text/javascript"></script>
 
-
-<link href="<?php echo sprintf("%scss.php?package=%s&stylesheet=%s",
-	Configuration::$BASE_URL, 'showdown', 'viewer.css'); ?>" rel="stylesheet">
-
-
+<!-- Import Viewer style -->
+<link href="<?php echo Core::getCSSstylesheetURL('viewer.css', 'showdown') ?>" rel="stylesheet">
 
 
 <ol class="breadcrumb" style="background-color:white">
@@ -85,17 +74,17 @@ if( is_null(Configuration::$ARG1) ){
 	<li class="<?php echo is_null(Configuration::$ARG1)? 'active' : '' ?>">
 		<a href="<?php echo Configuration::$BASE.'docs/'.Configuration::$ACTION.'/' ?>">
 			<?php
-			if( strcmp(Configuration::$ACTION, 'index') !== 0 ){
+			if (strcmp(Configuration::$ACTION, 'index') !== 0) {
 				echo Configuration::$ACTION;
 			}
 			?>
 		</a>
 	</li>
-	<?php if( !is_null(Configuration::$ARG1) ){
+	<?php if (!is_null(Configuration::$ARG1)) {
 		?>
 		<li class="active">
 			<a href="<?php echo Configuration::$BASE.'docs/'.Configuration::$ACTION.'/'.Configuration::$ARG1 ?>">
-				<?php if( strcmp(Configuration::$ARG1, 'index') !== 0 ): ?>
+				<?php if (strcmp(Configuration::$ARG1, 'index') !== 0 ): ?>
 					<span id="breadcrumb_current_title"></span>
 				<?php endif; ?>
 			</a>
@@ -105,14 +94,12 @@ if( is_null(Configuration::$ARG1) ){
 	?>
 </ol>
 
-
 <textarea id="_showdown_md_container" style="display:none"><?php echo trim(file_get_contents($md_file_path)) ?></textarea>
 
 <div style="width:100%; margin:auto">
-
 	<?php
-	$documents_title = Core::getSetting( 'documents_title', 'showdown' );
-	if( strlen(trim($documents_title)) != 0 ){
+	$documents_title = Core::getSetting('documents_title', 'showdown');
+	if (strlen(trim($documents_title)) != 0) {
 		?>
 		<table style="width:100%; border-bottom:1px solid #ddd; margin-bottom:32px">
 			<tr>
@@ -124,13 +111,11 @@ if( is_null(Configuration::$ARG1) ){
 		<?php
 	}
 	?>
-
 	<div id="_showdown_html_container" style="margin:50px 0 30px 0; text-align:justify;"></div>
-
 </div>
 
 
-<!-- Convert MarkDown into HTML -->
+<!-- Convert MarkDown to HTML -->
 <script type="text/javascript">
 	var showdown_viewer = new showdown.Converter(
 		{
@@ -142,10 +127,10 @@ if( is_null(Configuration::$ARG1) ){
 	);
 	var md_content = $("#_showdown_md_container").val();
 
-	var html = showdown_viewer.makeHtml( md_content );
+	var html = showdown_viewer.makeHtml(md_content);
 
-	$("#_showdown_html_container").html( html );
+	$("#_showdown_html_container").html(html);
 
 	// set the title of the page in the breadcrumb according to the H1 header
-	$('#breadcrumb_current_title').html( $("#_showdown_html_container h1:first-of-type").html() );
+	$('#breadcrumb_current_title').html($("#_showdown_html_container h1:first-of-type").html());
 </script>

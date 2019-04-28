@@ -3,6 +3,14 @@
     background-color: inherit;
 }
 
+/* Fix the space to the left of lists */
+#_showdown_html_container ul{
+    padding-left: 35px;
+}
+#_showdown_html_container ul li ul{
+    padding-left: 25px;
+}
+
 /* Fix the space error between 1st and 2nd level of a list */
 #_showdown_html_container ul li p{
     margin: 6px 0 0 0;
@@ -48,7 +56,6 @@
 #_showdown_html_container .bs-callout h4{
     padding-top: 0;
     margin-top: 0;
-    margin-bottom: 0;
 }
 /* exclude member functions panels */
 #_showdown_html_container .reference-code-documentation-panel h3{
