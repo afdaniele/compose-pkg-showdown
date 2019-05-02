@@ -112,3 +112,11 @@ dd{
   color: inherit;
   font-weight: normal;
 }
+
+/* Keystrokes */
+#_showdown_html_container .keystroke{
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 1px 6px;
+  background-color: #dadada;
+}
