@@ -10,7 +10,6 @@ $this_package = 'showdown';
 
 $documents_dir = sprintf("%s../data/%s/documents", $GLOBALS['__SYSTEM__DIR__'], $this_package);
 
-
 // go to index if the first-level dir is not given
 if (strlen(Configuration::$ACTION) < 1) {
 	Core::redirectTo('docs/index');
@@ -59,6 +58,9 @@ if (is_null(Configuration::$ARG1)) {
 
 <!-- Table -->
 <script src="<?php echo Core::getJSscriptURL('showdown-table.js', 'showdown') ?>" type="text/javascript"></script>
+
+<!-- Anchor -->
+<script src="<?php echo Core::getJSscriptURL('showdown-anchor.js', 'showdown') ?>" type="text/javascript"></script>
 
 <!-- Import Viewer style -->
 <link href="<?php echo Core::getCSSstylesheetURL('viewer.css', 'showdown') ?>" rel="stylesheet">
@@ -117,10 +119,12 @@ if (is_null(Configuration::$ARG1)) {
 
 <!-- Convert MarkDown to HTML -->
 <script type="text/javascript">
+
+$(document).ready(function(){
 	var showdown_viewer = new showdown.Converter(
 		{
 			parseImgDimensions : true,
-			extensions: ['toc', 'image-align', 'highlightjs', 'callout', 'table'],
+			extensions: ['toc', 'image-align', 'highlightjs', 'callout', 'table', 'anchor'],
 			ghCompatibleHeaderId : true,
 			tables : true
 		}
@@ -132,5 +136,8 @@ if (is_null(Configuration::$ARG1)) {
 	$("#_showdown_html_container").html(html);
 
 	// set the title of the page in the breadcrumb according to the H1 header
-	$('#breadcrumb_current_title').html($("#_showdown_html_container h1:first-of-type").html());
+	$('#breadcrumb_current_title').html(
+    $("#_showdown_html_container h1:first-of-type").html().replace(/<[^>]*>/g, '')
+  );
+});
 </script>
