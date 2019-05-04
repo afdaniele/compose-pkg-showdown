@@ -3,6 +3,10 @@
   background-color: inherit;
 }
 
+#_showdown_html_container pre{
+  background-color: #3f3f3f;
+}
+
 /* Fix the space to the left of lists */
 #_showdown_html_container ul{
   padding-left: 35px;
@@ -24,13 +28,13 @@
 
 /* Set the colors for the tree-view code block */
 #_showdown_html_container .language-treeview{
-  color: inherit;
+  color: #dcdcdc;
 }
 #_showdown_html_container .language-treeview .hljs-selector-tag{
-  color: forestgreen;
+  color: #e3ceab;
 }
 #_showdown_html_container .language-treeview .hljs-selector-class{
-  color: #c7254e;
+  color: #efef8f;
 }
 
 

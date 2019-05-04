@@ -51,6 +51,7 @@ if (is_null(Configuration::$ARG1)) {
 
 <!-- Code Highlight -->
 <script src="<?php echo Core::getJSscriptURL('showdown-highlight.js', 'showdown') ?>" type="text/javascript"></script>
+<script src="<?php echo Core::getJSscriptURL('highlight.pack.js', 'showdown') ?>" type="text/javascript"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 <!-- Callout -->
@@ -65,6 +66,7 @@ if (is_null(Configuration::$ARG1)) {
 <!-- Import Viewer style -->
 <link href="<?php echo Core::getCSSstylesheetURL('viewer.css', 'showdown') ?>" rel="stylesheet">
 
+<link href="<?php echo Core::getCSSstylesheetURL('zenburn.css', 'showdown') ?>" rel="stylesheet">
 
 <ol class="breadcrumb" style="background-color:white">
 	<li>
